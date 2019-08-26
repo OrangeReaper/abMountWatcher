@@ -40,6 +40,8 @@ public:
     QString mountPoint()                        {return m_mountPoint->absolutePath();}
     void    setMountPoint(QString mountPoint);
 
+    bool    isMounted()                         {return (m_status == mounted);}
+
     enum    status  {unknown, mounted, notMounted};
 
 signals:

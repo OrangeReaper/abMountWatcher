@@ -9,11 +9,9 @@ If *mountPoint* is not specified on creation, then ABMountWatcher is disabled; i
 
 ABMountWatcher is enabled by default; this can be changed on creation, or by a call to *setEnabled(bool)*;
 
-QFileSystemWatcher examines each path added to it. Files that have been added to the QFileSystemWatcher can be accessed using the files() function, and directories using the directories() function.
-
 The mountState(bool) signal is emitted when the number of files in the monitored directory changes to less than three; or changes to be more than two. The boolean state is *true* when the number of files in the monitored directory is more than two.
 
-#The Reason for ABMountWatcher
+# The Reason for ABMountWatcher
 QT provides a [QFileSystemWatcher](https://doc.qt.io/qt-5/qfilesystemwatcher.html) class, which, on first glance would seem to provide the same functionality as ABMountWatcher. However, in a Linux system [QFileSystemWatcher](https://doc.qt.io/qt-5/qfilesystemwatcher.html) relies on [inotify](http://manpages.ubuntu.com/manpages/bionic/man7/inotify.7.html) which is not responsive to filesystems being mounted on top of a monitored directory; cf:
 
     If  a filesystem is mounted on top of a monitored directory, no event is generated, and no
